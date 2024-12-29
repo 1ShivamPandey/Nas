@@ -8,8 +8,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+# os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+# llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0)
+
+openai_api_key = st.secrets["OPENAI_API_KEY"]
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0, openai_api_key=openai_api_key)
 
 st.title("📄 Chat with PDFs")
 #st.sidebar.title("Configuration")
